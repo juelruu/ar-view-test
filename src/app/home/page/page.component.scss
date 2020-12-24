@@ -1,0 +1,40 @@
+@import "./src/app/common-styles/ui-widget";
+
+:host {
+  min-width: 400px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+.calendar {
+  button {
+    @include border(black);
+    padding: 16px;
+  }
+}
+
+.content {
+  display: grid;
+  grid-gap: 16px;
+  grid-template-rows: min-content;
+}
+
+@media screen and (max-width: 600px) {
+  :host {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .calendar {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<div class="title">
+  <h4>{{item.date | date: 'shortDate'}} - {{item.title}}</h4>
+  <div class="crud">
+    <i class="fas fa-pencil-alt"></i>
+    <i class="fas fa-trash"></i>
+  </div>
+</div>
+<p *ngFor="let item of item.data | entires">{{item.title}} - {{item.value}}</p>
+
+
+<!--<div [ngSwitch]="item.type">
+  Holiday
+<ng-template *ngSwitchCase="0">
+  <p>{{item.data.text1}}</p>
+  <p>{{item.data.text2}}</p>
+</ng-template>
+
+Event
+<ng-template *ngSwitchCase="1">
+  <p>{{item.data.arg1}}</p>
+  <p>{{item.data.arg2}}</p>
+</ng-template>
+
+Other
+<ng-template *ngSwitchCase="2">
+  <p>{{item.data.other1}}</p>
+  <p>{{item.data.other2}}</p>
+</ng-template>
+</div>-->
+

@@ -1,2 +1,7 @@
-<dx-calendar></dx-calendar>
-<div class="content"></div>
+<div class="calendar">
+  <dx-calendar [(value)]="value" (valueChange)="test($event)"></dx-calendar>
+  <button [routerLink]="['/create', value.toDateString()]">Crate Event</button>
+</div>
+<div class="content">
+  <app-event-item *ngFor="let item of query.getEvents$(value.toDateString()) | async" [item]="item"></app-event-item>
+</div>

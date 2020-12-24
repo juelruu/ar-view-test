@@ -1,0 +1,32 @@
+@import "./src/app/common-styles/ui-widget";
+
+:host {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-gap: 8px;
+  height: min-content;
+  padding: 8px;
+
+  @include border(black);
+
+  &:hover {
+    @include border($blue);
+
+    .title.crud {
+      visibility: visible;
+    }
+  }
+
+  h4, p {
+    margin: 0;
+  }
+}
+
+.title {
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+  .crud {
+    visibility: hidden;
+  }
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AppQuery} from '../../store/app.query';
 
 @Component({
   selector: 'app-page',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageComponent implements OnInit {
 
-  constructor() { }
+  public value = new Date();
+
+  constructor(public query: AppQuery) { }
 
   ngOnInit(): void {
+  }
+
+  public test(e: Date): void {
+    console.log(e.toDateString());
   }
 
 }
