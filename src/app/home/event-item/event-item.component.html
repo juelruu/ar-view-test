@@ -1,8 +1,8 @@
 <div class="title">
   <h4>{{item.date | date: 'shortDate'}} - {{item.title}}</h4>
   <div class="crud">
-    <i class="fas fa-pencil-alt"></i>
-    <i class="fas fa-trash"></i>
+    <i class="fas fa-pencil-alt" title="Не работает"></i>
+    <i class="fas fa-trash" title="Не работает"></i>
   </div>
 </div>
 <p *ngFor="let item of item.data | entires">{{item.title}} - {{item.value}}</p>

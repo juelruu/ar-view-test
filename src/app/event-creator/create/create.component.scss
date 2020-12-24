@@ -1,0 +1,64 @@
+@import "./src/app/common-styles/ui-widget";
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: fill-available;
+  padding: 4px;
+  @include border(black);
+
+  &:disabled{
+    @include border($gray);
+
+    &:hover {
+      @include border($gray);
+    }
+
+  }
+}
+
+label {
+  margin: 8px;
+}
+
+input.ng-touched.ng-invalid {
+  @include border($red);
+  color: $red;
+}
+
+input.ng-touched.ng-valid {
+  @include border($green);
+  color: $green;
+}
+
+.input-error-message {
+  border: 1px solid $red;
+  margin-bottom: 4px;
+
+  p {
+    margin: 2px;
+    color: $red;
+  }
+}
+
+.create {
+  margin: 8px;
+
+  &:hover {
+    @include border($blue);
+    color: $blue;
+  }
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+
+  h3 {
+    margin: 0 16px;
+  }
+}

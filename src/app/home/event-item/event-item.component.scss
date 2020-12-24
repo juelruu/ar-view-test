@@ -6,13 +6,14 @@
   grid-gap: 8px;
   height: min-content;
   padding: 8px;
+  max-width: 600px;
 
   @include border(black);
 
   &:hover {
     @include border($blue);
 
-    .title.crud {
+    .title > .crud {
       visibility: visible;
     }
   }
@@ -28,5 +29,21 @@
 
   .crud {
     visibility: hidden;
+    display: grid;
+    grid-gap: 8px;
+
+    i {
+      grid-row: 1;
+      cursor: pointer;
+
+      &:hover {
+        &:nth-child(1) {
+          color: $blue;
+        }
+        &:nth-child(2) {
+          color: $red;
+        }
+      }
+    }
   }
 }

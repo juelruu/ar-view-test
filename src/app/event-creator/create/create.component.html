@@ -1,0 +1,75 @@
+<ng-container *ngIf="!!date">
+  <div class="title">
+    <button [routerLink]="['/home']">Home</button>
+    <h3>Create Event for {{date | date: 'shortDate'}}</h3>
+  </div>
+  <form #form="ngForm" (ngSubmit)="createEvent(form)">
+    <div class="column">
+      <label>
+        <div class="input-error-message" [hidden]="title.valid || title.untouched">
+          <p>Invalid value</p>
+        </div>
+        <input type="text" ngModel required #title="ngModel" name="title">
+      </label>
+      <label>
+        <input type="datetime-local" [value]="date" disabled>
+      </label>
+      <label>
+        <select (change)="selectType(select.value)" #select>
+          <option *ngFor="let type of types" [value]="type">{{type}}</option>
+        </select>
+      </label>
+      <div [ngSwitch]="selectedType" class="column">
+        <!--Holiday-->
+        <ng-container *ngSwitchCase="0">
+            <label>
+              <div class="input-error-message" [hidden]="text1.valid || text1.untouched">
+                <p>Invalid value</p>
+              </div>
+              <input type="text" ngModel required #text1="ngModel" name="text" placeholder="text1">
+            </label>
+            <label>
+              <div class="input-error-message" [hidden]="text2.valid || text2.untouched">
+                <p>Invalid value</p>
+              </div>
+              <input type="text" ngModel required #text2="ngModel" name="text2" placeholder="text2">
+            </label>
+        </ng-container>
+
+        <!--EventData-->
+        <ng-container *ngSwitchCase="1">
+          <label>
+            <div class="input-error-message" [hidden]="arg1.valid || arg1.untouched">
+              <p>Invalid value</p>
+            </div>
+            <input type="text" ngModel required #arg1="ngModel" name="arg1" placeholder="arg1">
+          </label>
+          <label>
+            <div class="input-error-message" [hidden]="arg2.valid || arg2.untouched">
+              <p>Invalid value</p>
+            </div>
+            <input type="text" ngModel required #arg2="ngModel" name="arg2" placeholder="arg2">
+          </label>
+        </ng-container>
+
+        <!--OtherData-->
+        <ng-container *ngSwitchCase="2">
+          <label>
+            <div class="input-error-message" [hidden]="other1.valid || other1.untouched">
+              <p>Invalid value</p>
+            </div>
+            <input type="text" ngModel required #text="ngModel" #other1="ngModel" name="other1" placeholder="other1">
+          </label>
+          <label>
+            <div class="input-error-message" [hidden]="other2.valid || other2.untouched">
+              <p>Invalid value</p>
+            </div>
+            <input type="text" ngModel required #other2="ngModel" name="other2" placeholder="other2">
+          </label>
+        </ng-container>
+      </div>
+      <input type="submit" [disabled]="form.invalid" class="create" value="create">
+    </div>
+  </form>
+
+</ng-container>
